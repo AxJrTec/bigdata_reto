@@ -44,6 +44,8 @@ jobs:
     # Correr archivo python con spark
     - run: spark-submit --master local games.py 
     - run: ls -la
+    - run: cd results
+    - run: ls -la
     # Subir resultados a github
     - name: GIT commit and push docs
       env: 
