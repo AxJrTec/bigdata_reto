@@ -23,6 +23,7 @@ if __name__ == "__main__":
     df_games_filtered = spark.sql(query)
     df_games_filtered.show(20)
     results = df_games_filtered.toJSON().collect()
-
+    df_games_filtered.write.mode("overwrite").json("results")
+    
     with open('results/data.json', 'w') as file:
         json.dump(results, file)
