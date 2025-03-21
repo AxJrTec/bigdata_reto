@@ -17,6 +17,7 @@ if __name__ == "__main__":
         FROM games 
         WHERE metacritic IS NOT NULL 
         AND metacritic > 70 
+        AND added_status_owned > 0 
         ORDER BY metacritic DESC
     '''
     df_games_filtered = spark.sql(query)
