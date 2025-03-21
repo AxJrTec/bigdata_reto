@@ -42,7 +42,7 @@ jobs:
     - run: wget -O dataset.csv https://raw.githubusercontent.com/AxJrTec/bigdata_reto/refs/heads/master/game_info.csv   
     - run: ls -la
     # Correr archivo python con spark
-    - run: spark-submit --master local game_info.py 
+    - run: spark-submit --master local games.py 
 
     - name: GIT commit and push docs
       env: 
