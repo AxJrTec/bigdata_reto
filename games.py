@@ -7,8 +7,8 @@ if __name__ == "__main__":
         .appName("games")\
         .getOrCreate()
 
-    print("leyendo dataset.csv ... ")
-    path_games="dataset.csv"
+    print("leyendo game_info.csv ... ")
+    path_games="game_info.csv"
     df_games = spark.read.csv(path_games, header=True, inferSchema=True)
     df_games.createOrReplaceTempView("games")
 
@@ -23,7 +23,6 @@ if __name__ == "__main__":
     df_games_filtered = spark.sql(query)
     df_games_filtered.show(20)
     results = df_games_filtered.toJSON().collect()
-    df_games.write.mode("overwrite").json("results")
 
     with open('results/data.json', 'w') as file:
         json.dump(results, file)
