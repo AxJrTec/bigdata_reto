@@ -12,7 +12,7 @@ if __name__ == "__main__":
     df_games = spark.read.csv(path_games, header=True, inferSchema=True)
     df_games.createOrReplaceTempView("games")
 
-    query='SELECT name, metacritic, released, added_status_owned AS owned, added_status_playing AS playing FROM games WHERE metacritic is NOT NULL ORDER BY metacritic DESC'
+    query='SELECT name, metacritic, released, added_status_owned AS owned, added_status_playing AS playing FROM games WHERE metacritic is NOT NULL AND metacritic > 70 ORDER BY metacritic DESC'
     
     df_games_filtered = spark.sql(query)
     df_games_filtered.show(20)
