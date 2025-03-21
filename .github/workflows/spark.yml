@@ -39,12 +39,10 @@ jobs:
         hadoop-version: '3'
 
     # Se descarga la base de datos  
-    - run: wget -O dataset.csv https://raw.githubusercontent.com/AxJrTec/bigdata_reto/refs/heads/master/game_info.csv   
-    - run: ls -la
+    # - run: wget -O dataset.csv https://raw.githubusercontent.com/AxJrTec/bigdata_reto/refs/heads/master/game_info.csv   
+    # - run: ls -la
     # Correr archivo python con spark
     - run: spark-submit --master local games.py 
-    - run: ls -la
-    - run: cd results
     - run: ls -la
     # Subir resultados a github
     - name: GIT commit and push docs
