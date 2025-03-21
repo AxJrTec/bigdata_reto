@@ -43,11 +43,12 @@ jobs:
     - run: ls -la
     # Correr archivo python con spark
     - run: spark-submit --master local games.py 
-
+    - run: ls -la
+    # Subir resultados a github
     - name: GIT commit and push docs
       env: 
         CI_COMMIT_MESSAGE: save spark results
-        CI_COMMIT_AUTHOR: adsoft 
+        CI_COMMIT_AUTHOR: AxJrTec 
       run: |
         git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
         git config --global user.email "A01738607@tec.mx"
